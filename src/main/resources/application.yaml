@@ -1,0 +1,4 @@
+datasource:
+    username: ${DB_USER}
+    password: ${DB_PASS}
+    url: jdbc:mysql://localhost:3306/solidarizr
