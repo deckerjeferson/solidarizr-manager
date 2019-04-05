@@ -1,4 +1,5 @@
-datasource:
-    username: ${DB_USER}
-    password: ${DB_PASS}
-    url: jdbc:mysql://localhost:3306/solidarizr
+spring:
+    datasource:
+        username: solidarize
+        password: 1234
+        url: jdbc:postgresql://localhost:5432/solidarize

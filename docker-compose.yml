@@ -1,14 +1,13 @@
-version: '3.7'
-container_name: solidarizr-mysql
-volumes:
-  data:
+version: "3"
 services:
-  db:
-    image: mysql:8.0
-    ports:
-      - "3306:3306"
-    volumes:
-      - data:/var/lib/mysql
+  solidarizr-db:
+    image: postgres:9.6
+    container_name: "postgres"
     environment:
-      - MYSQL_ROOT_PASSWORD=${DB_USER}
-      - MYSQL_DATABASE=${DB_PASS}
+      - POSTGRES_DB=solidarize
+      - POSTGRES_USER=postgres
+      - TZ=GMT
+    volumes:
+      - "./data/postgres:/var/lib/postgresql/data"
+    ports:
+      - 5432:5432
