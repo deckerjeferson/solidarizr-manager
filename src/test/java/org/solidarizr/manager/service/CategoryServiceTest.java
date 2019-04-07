@@ -28,7 +28,7 @@ public class CategoryServiceTest {
     }
 
     @Test
-    public void should_save_category(){
+    public void should_insert_category(){
         Category categoryToSave = Category.builder()
                 .name("Category 1").build();
 
@@ -38,6 +38,24 @@ public class CategoryServiceTest {
                 .build();
 
         when(repository.save(categoryToSave)).thenReturn(categorySaved);
+
+        Category result = service.save(categoryToSave);
+
+        assertThat(result).isEqualTo(categorySaved);
+    }
+
+    @Test
+    public void should_update_category(){
+        Category categoryToSave = Category.builder()
+                .id(1)
+                .name("Category 1 Modified").build();
+
+        Category categorySaved = Category.builder()
+                .id(1)
+                .name("Category 1 Modified")
+                .build();
+
+        when(repository.save(categorySaved)).thenReturn(categorySaved);
 
         Category result = service.save(categoryToSave);
 
