@@ -32,7 +32,7 @@ public class CategoryController {
         service.delete(category);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(name = "/categories", method = RequestMethod.GET)
     public List<Category> getAll() {
         return service.getAll();
     }
