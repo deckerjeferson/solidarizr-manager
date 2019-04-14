@@ -21,7 +21,7 @@ public class OrganizationController {
         this.service = service;
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(path = "/organization",method = RequestMethod.POST)
     public ResponseEntity<Organization> save(@RequestBody Organization organization) {
         Organization savedOrganization = service.save(organization);
 
@@ -29,7 +29,8 @@ public class OrganizationController {
     }
 
 
-    @RequestMapping(method = RequestMethod.DELETE)
+
+    @RequestMapping(path = "/organization", method = RequestMethod.DELETE)
     public ResponseEntity delete(@RequestBody Organization organization) {
         Boolean deleted = service.delete(organization.getId());
 
@@ -45,7 +46,7 @@ public class OrganizationController {
     }
 
 
-    @RequestMapping(name = "/organizations", method = RequestMethod.GET)
+    @RequestMapping(path = "/organizations", method = RequestMethod.GET)
     public ResponseEntity<List<Organization>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }

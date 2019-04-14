@@ -1,12 +1,15 @@
 package org.solidarizr.manager.model;
 
-import lombok.Builder;
-import lombok.Value;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Value
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 @Builder
 public class Category {
     public static final String SEQUENCE_NAME = "category_id_seq";

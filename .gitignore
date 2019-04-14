@@ -286,3 +286,6 @@ gradle-app.setting
 # End of https://www.gitignore.io/api/git,java,macos,linux,gradle,eclipse,windows,intellij+all
 
 .java-version
+
+data/
+lombok.config
