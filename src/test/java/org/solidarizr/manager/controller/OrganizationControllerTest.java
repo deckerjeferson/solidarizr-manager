@@ -16,7 +16,7 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.solidarizr.manager.util.OragnizationFixtures.*;
+import static org.solidarizr.manager.util.OrganizationFixtures.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OrganizationControllerTest {

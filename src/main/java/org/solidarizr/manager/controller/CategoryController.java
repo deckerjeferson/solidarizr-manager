@@ -3,6 +3,7 @@ package org.solidarizr.manager.controller;
 import org.solidarizr.manager.model.Category;
 import org.solidarizr.manager.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,8 +28,17 @@ public class CategoryController {
     }
 
     @RequestMapping(path = "/category", method = RequestMethod.DELETE)
-    public void delete(@RequestBody Category category) {
-        service.delete(category);
+    public ResponseEntity delete(@RequestBody Category category) {
+        ResponseEntity response;
+        Boolean deleted = service.delete(category.getId());
+
+        if(deleted){
+            response = ResponseEntity.ok().build();
+        } else {
+            response = ResponseEntity.notFound().build();
+        }
+
+        return response;
     }
 
     @RequestMapping(path = "/categories", method = RequestMethod.GET)

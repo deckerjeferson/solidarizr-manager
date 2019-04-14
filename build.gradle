@@ -12,8 +12,19 @@ group = 'org.solidarizr'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+sourceSets {
+	integrationTest {
+		compileClasspath += main.runtimeClasspath
+		compileClasspath += test.runtimeClasspath
+		runtimeClasspath += main.runtimeClasspath
+		runtimeClasspath += test.runtimeClasspath
+	}
+}
+
+
 idea {
 	module {
+		testSourceDirs += sourceSets.integrationTest.java.srcDirs
 		downloadSources = true
 	}
 }
@@ -21,6 +32,7 @@ idea {
 application {
 	mainClassName = 'org.solidarizr.manager.ManagerApplication'
 }
+
 
 repositories {
 	mavenCentral()

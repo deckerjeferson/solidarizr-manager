@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.solidarizr.manager.model.Organization;
 
 @Getter
-public enum OragnizationFixtures {
+public enum OrganizationFixtures {
     NOT_INSERTED_ORGANIZATION(Organization.builder()
     .name("Organization 1").build()),
     SAVED_ORGANIZATION(Organization.builder()
@@ -19,7 +19,7 @@ public enum OragnizationFixtures {
 
     private Organization organization;
 
-    OragnizationFixtures(Organization organization) {
+    OrganizationFixtures(Organization organization) {
         this.organization = organization;
     }
 }

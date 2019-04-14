@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -25,7 +26,15 @@ public class CategoryService {
         return (List<Category>) repository.findAll();
     }
 
-    public void delete(Category categoryToDelete) {
-        repository.delete(categoryToDelete);
+    public Boolean delete(Integer id) {
+        Optional<Category> categoryToDelete = repository.findById(id);
+        Boolean deleted = false;
+
+        if(categoryToDelete.isPresent()) {
+            repository.delete(categoryToDelete.get());
+            deleted = true;
+        }
+
+        return deleted;
     }
 }

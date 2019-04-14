@@ -14,7 +14,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.mockito.Mockito.*;
-import static org.solidarizr.manager.util.OragnizationFixtures.*;
+import static org.solidarizr.manager.util.OrganizationFixtures.*;
 
 
 @RunWith(MockitoJUnitRunner.class)
