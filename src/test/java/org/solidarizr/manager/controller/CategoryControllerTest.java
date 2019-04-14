@@ -55,7 +55,7 @@ public class CategoryControllerTest {
     public void should_delete_existing_organization(){
         when(service.delete(SAVED_CATEGORY.getCategory().getId())).thenReturn(true);
 
-        ResponseEntity result = controller.delete(SAVED_CATEGORY.getCategory());
+        ResponseEntity result = controller.delete(1);
 
         assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
         verify(service).delete(SAVED_CATEGORY.getCategory().getId());
@@ -65,7 +65,7 @@ public class CategoryControllerTest {
     public void should_return_404_when_try_to_delete_not_existing_organization(){
         when(service.delete(SAVED_ORGANIZATION.getOrganization().getId())).thenReturn(false);
 
-        ResponseEntity result = controller.delete(SAVED_CATEGORY.getCategory());
+        ResponseEntity result = controller.delete(1);
 
         assertThat(result.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
         verify(service).delete(SAVED_CATEGORY.getCategory().getId());

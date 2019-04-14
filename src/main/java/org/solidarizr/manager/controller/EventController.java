@@ -1,7 +1,9 @@
 package org.solidarizr.manager.controller;
 
 import org.solidarizr.manager.model.Category;
+import org.solidarizr.manager.model.Event;
 import org.solidarizr.manager.service.CategoryService;
+import org.solidarizr.manager.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,22 +11,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class CategoryController {
+public class EventController {
 
-    private CategoryService service;
+    private EventService service;
 
     @Autowired
-    public CategoryController(CategoryService service) {
+    public EventController(EventService service) {
         this.service = service;
     }
 
 
-    @RequestMapping(path = "/category",  method = RequestMethod.POST)
-    public Category save(@RequestBody Category category) {
-        return service.save(category);
+    @RequestMapping(path = "/event",  method = RequestMethod.POST)
+    public ResponseEntity<Event> save(@RequestBody Event event) {
+        return ResponseEntity.ok(service.save(event));
     }
 
-    @RequestMapping(path = "/category/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/event/{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable(name="id") Integer id) {
         ResponseEntity response;
         Boolean deleted = service.delete(id);
@@ -38,8 +40,8 @@ public class CategoryController {
         return response;
     }
 
-    @RequestMapping(path = "/categories", method = RequestMethod.GET)
-    public List<Category> getAll() {
+    @RequestMapping(path = "/events", method = RequestMethod.GET)
+    public List<Event> getAll() {
         return service.getAll();
     }
 }

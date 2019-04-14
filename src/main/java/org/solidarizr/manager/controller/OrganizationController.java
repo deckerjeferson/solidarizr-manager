@@ -5,6 +5,7 @@ import org.solidarizr.manager.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,9 +31,9 @@ public class OrganizationController {
 
 
 
-    @RequestMapping(path = "/organization", method = RequestMethod.DELETE)
-    public ResponseEntity delete(@RequestBody Organization organization) {
-        Boolean deleted = service.delete(organization.getId());
+    @RequestMapping(path = "/organization/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity delete(@PathVariable(name="id") Integer id) {
+        Boolean deleted = service.delete(id);
 
         ResponseEntity response;
 
