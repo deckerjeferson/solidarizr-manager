@@ -25,8 +25,7 @@
 							"raw": "{\n\t\"id\":1,\n\t\"name\":\"Organização 1 Modificado\"\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/organization",
-							"protocol": "http",
+							"raw": "{{url}}/organization",
 							"host": [
 								"{{url}}"
 							],
@@ -54,8 +53,7 @@
 							"raw": "{\n\t\"name\":\"Organização 1\"\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/organization",
-							"protocol": "http",
+							"raw": "{{url}}/organization",
 							"host": [
 								"{{url}}"
 							],
@@ -76,8 +74,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/organizations",
-							"protocol": "http",
+							"raw": "{{url}}/organizations",
 							"host": [
 								"{{url}}"
 							],
@@ -105,8 +102,7 @@
 							"raw": "{\n    \"id\": 1\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/organization",
-							"protocol": "http",
+							"raw": "{{url}}/organization",
 							"host": [
 								"{{url}}"
 							],
@@ -132,8 +128,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/categories",
-							"protocol": "http",
+							"raw": "{{url}}/categories",
 							"host": [
 								"{{url}}"
 							],
@@ -161,8 +156,7 @@
 							"raw": "{\n\t\"name\":\"Categoria 1\"\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/category",
-							"protocol": "http",
+							"raw": "{{url}}/category",
 							"host": [
 								"{{url}}"
 							],
@@ -190,8 +184,7 @@
 							"raw": "{\n\t\"id\":1,\n\t\"name\":\"Categoria 2 modificado\"\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/category",
-							"protocol": "http",
+							"raw": "{{url}}/category",
 							"host": [
 								"{{url}}"
 							],
@@ -219,8 +212,7 @@
 							"raw": "{\n\t\"id\":1\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/category",
-							"protocol": "http",
+							"raw": "{{url}}/category",
 							"host": [
 								"{{url}}"
 							],
@@ -253,8 +245,7 @@
 							"raw": "{\n\t\"name\":\"Event 1\",\n\t\"description\":\"Mo legal esse evento\",\n\t\"category\": {\n\t\t\"id\":2\n\t\t\n\t},\n\t\"organization\":{\n\t\t\"id\":2\n\t\t\n\t}\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/event",
-							"protocol": "http",
+							"raw": "{{url}}/event",
 							"host": [
 								"{{url}}"
 							],
@@ -282,8 +273,7 @@
 							"raw": "{\n\t\"id\":39,\n\t\"name\":\"Event 3\",\n\t\"description\":\"Mo legal esse evento hoho cucucuc\",\n\t\"category\": {\n\t\t\"id\":2\n\t},\n\t\"organization\":{\n\t\t\"id\":2\n\t}\n}"
 						},
 						"url": {
-							"raw": "http://{{url}}/event",
-							"protocol": "http",
+							"raw": "{{url}}/event",
 							"host": [
 								"{{url}}"
 							],
@@ -304,8 +294,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://{{url}}/event",
-							"protocol": "http",
+							"raw": "{{url}}/event",
 							"host": [
 								"{{url}}"
 							],
@@ -319,14 +308,21 @@
 				{
 					"name": "Delete Event",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
 						"url": {
-							"raw": ""
+							"raw": "{{url}}/event/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"event",
+								"1"
+							]
 						}
 					},
 					"response": []
