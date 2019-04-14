@@ -1,8 +1,6 @@
 package org.solidarizr.manager.controller;
 
-import org.solidarizr.manager.model.Category;
 import org.solidarizr.manager.model.Event;
-import org.solidarizr.manager.service.CategoryService;
 import org.solidarizr.manager.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
