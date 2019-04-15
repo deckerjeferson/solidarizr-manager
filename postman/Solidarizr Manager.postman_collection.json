@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1,\n\t\"name\":\"Organização 1 Modificado\"\n}"
+							"raw": "{\n\t\"id\":2,\n\t\"name\":\"Organização 2 Modificado\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/organization",
@@ -99,15 +99,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 1\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/organization",
+							"raw": "{{url}}/organization/1",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"organization"
+								"organization",
+								"1"
 							]
 						}
 					},
@@ -153,7 +154,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\":\"Categoria 1\"\n}"
+							"raw": "{\n\t\"name\":\"Categoria 2\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/category",
@@ -181,7 +182,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1,\n\t\"name\":\"Categoria 2 modificado\"\n}"
+							"raw": "{\n\t\"id\":1,\n\t\"name\":\"Categoria 1\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/category",
@@ -209,15 +210,16 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\":1\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/category",
+							"raw": "{{url}}/category/2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"category"
+								"category",
+								"2"
 							]
 						}
 					},
@@ -294,12 +296,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/event",
+							"raw": "{{url}}/events",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"event"
+								"events"
 							]
 						}
 					},
@@ -315,13 +317,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/event/1",
+							"raw": "{{url}}/event/2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"event",
-								"1"
+								"2"
 							]
 						}
 					},
