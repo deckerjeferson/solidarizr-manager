@@ -1,5 +1,6 @@
 package org.solidarizr.manager.controller;
 
+import io.swagger.annotations.Api;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,6 +21,7 @@ import static org.solidarizr.manager.util.CategoryFixture.SAVED_CATEGORY;
 import static org.solidarizr.manager.util.EventFixture.*;
 import static org.solidarizr.manager.util.OrganizationFixtures.SAVED_ORGANIZATION;
 
+@Api()
 @RunWith(MockitoJUnitRunner.class)
 public class EventControllerTest {
     @Mock
