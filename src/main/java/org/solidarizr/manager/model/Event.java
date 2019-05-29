@@ -31,4 +31,8 @@ public class Event {
     @JoinColumn(name = "creator")
     private Organization organization;
 
+    @ManyToOne
+    @JoinColumn(name = "target_audience")
+    private TargetAudience targetAudience;
+
 }
