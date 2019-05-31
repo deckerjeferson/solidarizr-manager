@@ -9,6 +9,7 @@ import org.solidarizr.manager.model.Category;
 import org.solidarizr.manager.model.Event;
 import org.solidarizr.manager.repository.CategoryRepository;
 import org.solidarizr.manager.repository.EventRepository;
+import org.solidarizr.manager.repository.TargetAudienceRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,11 +26,17 @@ public class EventServiceTest {
     @Mock
     EventRepository repository;
 
+    @Mock
+    CategoryRepository categoryRepository;
+
+    @Mock
+    TargetAudienceRepository targetAudienceRepository;
+
     EventService service;
 
     @Before
     public void setUp(){
-        service = new EventService(repository);
+        service = new EventService(repository, categoryRepository, targetAudienceRepository);
     }
 
     @Test

@@ -42,4 +42,14 @@ public class EventController {
     public List<Event> getAll() {
         return service.getAll();
     }
+
+    @RequestMapping(path = "/event", method = RequestMethod.GET)
+    public ResponseEntity<List<Event>> getEventsBasedOnCategoryAndTargetAudience(
+            @RequestParam(value = "category", required = true) Integer category,
+            @RequestParam(value = "targetAudience", required = true) Integer targetAudience){
+
+        List<Event> events = service.getEventsBasedOnCategoryAndTargetAudience(category, targetAudience);
+
+        return ResponseEntity.ok(events);
+    }
 }

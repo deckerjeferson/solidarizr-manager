@@ -2,8 +2,10 @@ package org.solidarizr.manager.service;
 
 import org.solidarizr.manager.model.Category;
 import org.solidarizr.manager.model.Event;
+import org.solidarizr.manager.model.TargetAudience;
 import org.solidarizr.manager.repository.CategoryRepository;
 import org.solidarizr.manager.repository.EventRepository;
+import org.solidarizr.manager.repository.TargetAudienceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +16,14 @@ import java.util.Optional;
 public class EventService {
 
     EventRepository repository;
+    CategoryRepository categoryRepository;
+    TargetAudienceRepository targetAudienceRepository;
 
     @Autowired
-    public EventService(EventRepository repository) {
+    public EventService(EventRepository repository, CategoryRepository categoryRepository, TargetAudienceRepository targetAudienceRepository) {
         this.repository = repository;
+        this.categoryRepository = categoryRepository;
+        this.targetAudienceRepository = targetAudienceRepository;
     }
 
     public Event save(Event event){
@@ -38,5 +44,14 @@ public class EventService {
         }
 
         return deleted;
+    }
+
+    public List<Event> getEventsBasedOnCategoryAndTargetAudience(Integer categoryId, Integer targetAudienceId) {
+
+        Category category = categoryRepository.findById(categoryId).get();
+        TargetAudience targetAudience = targetAudienceRepository.findById(targetAudienceId).get();
+
+
+        return repository.findByCategoryAndTargetAudience(category, targetAudience);
     }
 }
