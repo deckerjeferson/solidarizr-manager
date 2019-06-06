@@ -9,6 +9,7 @@ import org.solidarizr.manager.repository.TargetAudienceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,11 +48,16 @@ public class EventService {
     }
 
     public List<Event> getEventsBasedOnCategoryAndTargetAudience(Integer categoryId, Integer targetAudienceId) {
-
-        Category category = categoryRepository.findById(categoryId).get();
-        TargetAudience targetAudience = targetAudienceRepository.findById(targetAudienceId).get();
+        List<Event> events = new ArrayList<>();
 
 
-        return repository.findByCategoryAndTargetAudience(category, targetAudience);
+        Optional<Category> category = categoryRepository.findById(categoryId);
+        Optional<TargetAudience> targetAudience = targetAudienceRepository.findById(targetAudienceId);
+
+        if(category.isPresent() && targetAudience.isPresent()) {
+            events = repository.findByCategoryAndTargetAudience(category.get(), targetAudience.get());
+        }
+
+        return events;
     }
 }
