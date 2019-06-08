@@ -27,6 +27,8 @@ public class Event {
 
     private String phone;
 
+    private String mail;
+
     @ManyToOne
     @JoinColumn(name = "category")
     private Category category;
