@@ -23,6 +23,10 @@ public class Event {
 
     private String description;
 
+    private String site;
+
+    private String phone;
+
     @ManyToOne
     @JoinColumn(name = "category")
     private Category category;
