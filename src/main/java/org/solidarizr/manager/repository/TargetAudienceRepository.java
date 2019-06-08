@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface TargetAudienceRepository extends CrudRepository<TargetAudience, Integer> {
     public Optional<TargetAudience> findById(Integer id);
 
-    @Query("select t from targetAudience t " +
+    @Query("select distinct t from targetAudience t " +
             "join t.events e " +
             "join e.category c " +
             "where c.id = ?1")
