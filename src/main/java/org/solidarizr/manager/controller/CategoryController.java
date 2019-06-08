@@ -42,4 +42,9 @@ public class CategoryController {
     public List<Category> getAll() {
         return service.getAll();
     }
+
+    @RequestMapping(path = "category/targetAudience/{id}")
+    public ResponseEntity<List<Category>> findByEventsWithTargetAudienceId(@PathVariable(name = "id", required = true) Integer id){
+        return ResponseEntity.ok().body(service.findByEventsWithTargetAudienceId(id));
+    }
 }

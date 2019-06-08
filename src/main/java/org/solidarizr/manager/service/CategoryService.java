@@ -37,4 +37,8 @@ public class CategoryService {
 
         return deleted;
     }
+
+    public List<Category> findByEventsWithTargetAudienceId(Integer id){
+        return repository.findByEventsWithTargetAudienceId(id);
+    }
 }

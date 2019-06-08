@@ -39,4 +39,8 @@ public class TargetAudienceService {
     public List<TargetAudience> getAll() {
         return (List<TargetAudience>) repository.findAll();
     }
+
+    public List<TargetAudience> findTargetAudiencesByEventsWithCategoryId(Integer id){
+        return repository.findTargetAudiencesByEventsWithCategoryId(id);
+    }
 }

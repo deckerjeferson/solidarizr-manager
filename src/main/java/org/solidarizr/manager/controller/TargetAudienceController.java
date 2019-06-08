@@ -7,10 +7,7 @@ import org.solidarizr.manager.service.TargetAudienceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -52,5 +49,10 @@ public class TargetAudienceController {
     @RequestMapping(path = "/targetAudiences", method = RequestMethod.GET)
     public ResponseEntity<List<TargetAudience>> getAll() {
         return ResponseEntity.ok(service.getAll());
+    }
+
+    @RequestMapping(path = "/targetAudience/category/{id}", method = RequestMethod.GET)
+    public ResponseEntity<List<TargetAudience>> getTargetAudiencesByEventsWithCategoryId(@PathVariable(name="id", required = true) Integer id){
+        return ResponseEntity.ok().body(service.findTargetAudiencesByEventsWithCategoryId(id));
     }
 }
