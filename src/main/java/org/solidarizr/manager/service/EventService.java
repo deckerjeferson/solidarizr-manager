@@ -60,4 +60,8 @@ public class EventService {
 
         return events;
     }
+
+    public Optional<Event> getById(Integer id){
+        return repository.findById(id);
+    }
 }

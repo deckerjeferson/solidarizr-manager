@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class EventController {
@@ -31,6 +32,20 @@ public class EventController {
 
         if(deleted){
             response = ResponseEntity.ok().build();
+        } else {
+            response = ResponseEntity.notFound().build();
+        }
+
+        return response;
+    }
+
+    @RequestMapping(path = "/event/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Event> findById(@PathVariable(name = "id") Integer id){
+        ResponseEntity response;
+        Optional<Event> event = service.getById(id);
+
+        if(event.isPresent()){
+            response = ResponseEntity.ok(event.get());
         } else {
             response = ResponseEntity.notFound().build();
         }
