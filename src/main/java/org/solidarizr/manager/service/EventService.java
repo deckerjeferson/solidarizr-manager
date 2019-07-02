@@ -32,7 +32,7 @@ public class EventService {
     }
 
     public List<Event> getAll() {
-        return (List<Event>) repository.findAll();
+        return repository.findAllByOrderByIdAsc();
     }
 
     public Boolean delete(Integer id) {

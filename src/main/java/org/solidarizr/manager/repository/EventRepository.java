@@ -10,6 +10,7 @@ import java.util.Optional;
 
 public interface EventRepository extends CrudRepository<Event, Integer> {
     Optional<Event> findById(Integer id);
+    List<Event> findAllByOrderByIdAsc();
 
     List<Event> findByCategoryAndTargetAudience(Category category, TargetAudience targetAudience);
 }

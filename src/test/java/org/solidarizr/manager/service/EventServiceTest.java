@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.solidarizr.manager.model.Category;
 import org.solidarizr.manager.model.Event;
 import org.solidarizr.manager.repository.CategoryRepository;
 import org.solidarizr.manager.repository.EventRepository;
@@ -73,7 +72,7 @@ public class EventServiceTest {
                         .organization(SAVED_ORGANIZATION.getOrganization())
                         .build());
 
-        when(repository.findAll()).thenReturn(allEvent);
+        when(repository.findAllByOrderByIdAsc()).thenReturn(allEvent);
 
         List<Event> result = service.getAll();
 
