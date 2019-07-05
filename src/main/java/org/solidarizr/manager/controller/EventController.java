@@ -1,5 +1,6 @@
 package org.solidarizr.manager.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.solidarizr.manager.model.Event;
 import org.solidarizr.manager.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,13 @@ public class EventController {
     }
 
 
+    @ApiOperation(value = "Saves volunteer project")
     @RequestMapping(path = "/event",  method = RequestMethod.POST)
     public ResponseEntity<Event> save(@RequestBody Event event) {
         return ResponseEntity.ok(service.save(event));
     }
 
+    @ApiOperation(value = "Deletes volunteer project")
     @RequestMapping(path = "/event/{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable(name="id") Integer id) {
         ResponseEntity response;
@@ -53,11 +56,13 @@ public class EventController {
         return response;
     }
 
+    @ApiOperation(value = "Finds all volunteer projects")
     @RequestMapping(path = "/events", method = RequestMethod.GET)
     public List<Event> getAll() {
         return service.getAll();
     }
 
+    @ApiOperation(value = "Finds specific volunteer project", httpMethod = "GET")
     @RequestMapping(path = "/event", method = RequestMethod.GET)
     public ResponseEntity<List<Event>> getEventsBasedOnCategoryAndTargetAudience(
             @RequestParam(value = "category", required = true) Integer category,

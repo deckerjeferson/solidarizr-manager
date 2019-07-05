@@ -1,5 +1,6 @@
 package org.solidarizr.manager.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.solidarizr.manager.model.Organization;
 import org.solidarizr.manager.model.TargetAudience;
 import org.solidarizr.manager.service.OrganizationService;
@@ -21,6 +22,7 @@ public class TargetAudienceController {
         this.service = service;
     }
 
+    @ApiOperation(value = "Saves volunteer project's target audience")
     @RequestMapping(path = "/targetAudience",method = RequestMethod.POST)
     public ResponseEntity<TargetAudience> save(@RequestBody TargetAudience targetAudience) {
         TargetAudience toSaveTargetAudience = service.save(targetAudience);
@@ -29,7 +31,7 @@ public class TargetAudienceController {
     }
 
 
-
+    @ApiOperation(value = "Deletes volunteer project's target audience")
     @RequestMapping(path = "/targetAudience/{id}", method = RequestMethod.DELETE)
     public ResponseEntity delete(@PathVariable(name="id") Integer id) {
         Boolean deleted = service.delete(id);
@@ -46,11 +48,13 @@ public class TargetAudienceController {
     }
 
 
+    @ApiOperation(value = "Finds all volunteer project's target audience")
     @RequestMapping(path = "/targetAudiences", method = RequestMethod.GET)
     public ResponseEntity<List<TargetAudience>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
 
+    @ApiOperation(value = "Finds all target audiences used by projects, that's related to a specific category", httpMethod = "GET")
     @RequestMapping(path = "/targetAudience/category/{id}", method = RequestMethod.GET)
     public ResponseEntity<List<TargetAudience>> getTargetAudiencesByEventsWithCategoryId(@PathVariable(name="id", required = true) Integer id){
         return ResponseEntity.ok().body(service.findTargetAudiencesByEventsWithCategoryId(id));
